@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: myapp-relicaset
+  labels:
+    app: myapp
+spec:
+  # modify replicas according to your case
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      name: ngnix-2
+      labels:
+        app: myapp 
+    spec:
+      containers:
+      - name: ngnix
+        image: ngnix
